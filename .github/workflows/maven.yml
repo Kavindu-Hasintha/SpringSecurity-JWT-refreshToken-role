@@ -1,0 +1,11 @@
+name: CI/CD + docker hub + aws ec2 + spring security with jwt
+
+on:
+  push:
+    branches: [ "deploy" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
