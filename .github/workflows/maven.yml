@@ -20,17 +20,17 @@ jobs:
       - name: Login to docker hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
       - name: Build docker image
-        run: docker build -t abcd/security-jwt .
+        run: docker build -t hkavindu64/security-jwt .
       - name: Publish image to docker hub
-        run: docker push abcd/security-jwt:latest
+        run: docker push hkavindu64/security-jwt:latest
 
   deploy:
     runs-on: self-hosted
     needs: build
     steps:
       - name: Pull image from docker hub
-        run: sudo docker pull abcd/security-jwt
+        run: sudo docker pull hkavindu64/security-jwt
       - name: remove the existing container, if there is any
         run: sudo docker rm -f demo-container
       - name: Create and run new container from the image
-        run: sudo docker run -d -p 4040:4040 --name demo-container abcd/security-jwt
+        run: sudo docker run -d -p 4040:4040 --name demo-container hkavindu64/security-jwt
