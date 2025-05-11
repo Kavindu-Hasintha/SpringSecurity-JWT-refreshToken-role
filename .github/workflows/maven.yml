@@ -29,7 +29,7 @@ jobs:
     needs: build
     steps:
       - name: Pull image from docker hub
-        run: sudo docker pull hkavindu64/security-jwt
+        run: sudo docker pull hkavindu64/security-jwt:latest
       - name: remove the existing container, if there is any
         run: sudo docker rm -f demo-container
       - name: Create and run new container from the image
