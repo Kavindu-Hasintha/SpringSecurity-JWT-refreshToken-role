@@ -26,7 +26,7 @@ jobs:
 
   deploy:
     runs-on: self-hosted
-    need: build
+    needs: build
     steps:
       - name: Pull image from docker hub
         run: sudo docker pull abcd/security-jwt
